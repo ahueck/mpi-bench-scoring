@@ -11,6 +11,7 @@ env:
   CXX: clang++
   CC: clang
   OMP_NUM_THREAD: 1
+  CI_SCORE_TEST: 1
 
 jobs:
   run-corrbench:
@@ -36,9 +37,27 @@ jobs:
         run: |
           sudo ln -f -s /usr/bin/clang-12 /usr/bin/clang
           sudo ln -f -s /usr/bin/clang++-12 /usr/bin/clang++
+          sudo ln -f -s /usr/bin/llvm-symbolizer-12 /usr/bin/llvm-symbolizer
 
       - name: Setup mpi-arg-tracer
         working-directory: mpi-arg-tracer
         run: |
           bash init.sh
           source bashrc
+
+      - name: Setup MPI-CorrBench
+        working-directory: mpi-corrbench
+        run: |
+          source bashrc
+          bash init.sh
+
+      - name: Trace MPI-CorrBench
+        working-directory: mpi-corrbench
+        run: |
+          source bashrc
+          bash execute.sh
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: corrbench-trace
+          path: mpi-corrbench/mpi-corrbench/mpi-arg-trace-files

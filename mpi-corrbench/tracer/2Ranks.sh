@@ -511,9 +511,9 @@ TESTCASES=( "${MPI_CORRBENCH_BASE}"/micro-benches/0-level/conflo/pt2pt/ArgError-
 "${MPI_CORRBENCH_BASE}"/micro-benches/0-level/rma/MissingCall-MPIFence.c
 "${MPI_CORRBENCH_BASE}"/micro-benches/0-level/rma/MissingCall-MPIWinFence-2.c )
 
-
-
-TESTCASES=( "${MPI_CORRBENCH_BASE}"/micro-benches/0-level/correct/pt2pt/bottom.c )
+if [[ $CI_SCORE_TEST == 1 ]]; then
+  TESTCASES=( "${MPI_CORRBENCH_BASE}"/micro-benches/0-level/correct/pt2pt/bottom.c )
+fi
 
 PRELOAD_TRACER="${MPI_ARG_TRACER_LIB}"
 
