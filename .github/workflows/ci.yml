@@ -110,3 +110,21 @@ jobs:
         with:
           name: mbi-trace
           path: mpi-bugs-initiative/mbi/mpi-arg-trace-files
+
+
+  run-scoring:
+    needs: [run-mbi, run-corrbench]
+    name: "MPI Usage Pattern Scorer"
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        with:
+          path: mpi-scoring/traces
+
+      - name: Display structure of downloaded files
+        run: ls -R mpi-scoring/traces
+
+
