@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../mpi-bench-scoring/bashrc
+source ../mpi-scoring/bashrc
 source bashrc
 
 # collect the static data
@@ -11,5 +11,5 @@ echo "MpiBugsInitiative,C,git,https://gitlab.com/MpiBugsInitiative/MpiBugsInitia
 
 mkdir -p $MPI_ARG_TRACE_DIR/static_output
 
-cd $ MPI_ARG_USAGE_BASE 
+cd $MPI_ARG_USAGE_BASE 
 python3 mpi_usage_analysis.py --output $MPI_ARG_TRACE_DIR/MBI-Static.csv --code_locations mbi.csv --repo_path $MBI_BASE/..
