@@ -19,8 +19,8 @@ python3 merge_dynamic_data.py --output $MBI_FILES/merged_mbi.csv --input_static 
 python3 merge_dynamic_data.py --output $COBE_FILES/merged_cobe.csv --input_static $COBE_FILES/Cobe-Static.csv --input_dynamic $COBE_FILES/cobe_dynamic.csv
 
 # perform the scoring and generate the plots
-python score_corbenchs.py --input $HPC_DATA_DIR/output.csv --cobe $COBE_FILES/cobe_dynamic.csv --mbi $MBI_FILES/mbi_dynamic.csv
-python score_corbenchs.py --input $HPC_DATA_DIR --cobe $COBE_FILES/cobe_dynamic.csv --mbi $MBI_FILES/mbi_dynamic.csv
+python score_corbenchs.py --input $HPC_DATA_DIR/output.csv --cobe $COBE_FILES/cobe_dynamic.csv --mbi $MBI_FILES/merged_mbi.csv
+python score_corbenchs.py --input $HPC_DATA_DIR --cobe $COBE_FILES/merged_cobe.csv --mbi $MBI_FILES/merged_cobe.csv
 
 ls -l -R
 
