@@ -1,5 +1,5 @@
 
-export MPI_ARG_USAGE_BASE=$(cd $(dirname ${BASH_SOURCE:-$0}) && pwd -P)/mpi-arg
+export MPI_ARG_USAGE_BASE=$(cd $(dirname ${BASH_SOURCE:-$0}) && pwd -P)/mpi-arg-usage
 
 export COBE_FILES=traces/corrbench-trace
 

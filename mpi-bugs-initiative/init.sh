@@ -2,11 +2,11 @@
 
 source bashrc
 
-git clone --depth 1 --branch paper https://gitlab.com/MpiBugsInitiative/MpiBugsInitiative.git mbi
+git clone --depth 1 --branch paper https://gitlab.com/MpiBugsInitiative/MpiBugsInitiative.git MpiBugsInitiative
 
 cp tracer/* mbi/scripts/tools
 
-cd mbi/
+cd MpiBugsInitiative/
 git apply ../patch/mbi-script.patch
 
 python3 ./MBI.py -c generate
