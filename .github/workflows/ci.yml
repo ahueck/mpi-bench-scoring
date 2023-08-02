@@ -209,9 +209,6 @@ jobs:
           source bashrc
           bash init.sh
           
-      - name: Display structure of downloaded files
-        run: ls -R mpi-scoring/traces
-          
       - uses: actions/download-artifact@v3
         with:
           path: mpi-scoring/traces

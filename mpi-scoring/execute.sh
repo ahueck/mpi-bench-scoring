@@ -18,15 +18,10 @@ cd $MPI_ARG_USAGE_BASE
 python3 merge_dynamic_data.py --output $MBI_FILES/merged_mbi.csv --static $MBI_FILES/MBI-Static.csv --dynamic $MBI_FILES/mbi_dynamic.csv
 python3 merge_dynamic_data.py --output $COBE_FILES/merged_cobe.csv --static $COBE_FILES/Cobe-Static.csv --dynamic $COBE_FILES/cobe_dynamic.csv
 
-
+# perform the scoring and generate the plots
 python score_corbenchs.py --input $HPC_DATA_DIR/output.csv --cobe $COBE_FILES/cobe_dynamic.csv --mbi $MBI_FILES/mbi_dynamic.csv
 
 # move result plots to their own dir
 mkdir plots
 
 mv *.pdf plots
-
-# debugging od CI
-cd plots
-ls -l
-pwd
