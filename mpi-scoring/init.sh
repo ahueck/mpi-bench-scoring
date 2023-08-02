@@ -9,6 +9,6 @@ source bashrc
 #conda env create -y -f mpi-arg-usage/environment.yml
 conda env create -y --name mpi_analysis
 
-source ~/anaconda3/etc/profile.d/conda.sh
+#source ~/anaconda3/etc/profile.d/conda.sh
 
-conda activate mpi_analysis
+source activate mpi_analysis
