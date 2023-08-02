@@ -119,10 +119,44 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      steps:
+      - uses: actions/checkout@v3
 
-      - uses: actions/download-artifact@v3
+      - name: Update apt
+        run: sudo apt-get update
+
+      - name: Install Clang-format
+        run: sudo apt-get install clang-format-12
+      
+      - name: Setup env
+        run: |
+          sudo ln -f -s /usr/bin/clang-format-12 /usr/bin/clang-format
+       
+      - name: Setup Scoring
+        working-directory: mpi-scoring
+        run: |
+          source bashrc
+          bash init.sh
+          
+     - uses: actions/download-artifact@v3
         with:
           path: mpi-scoring/traces
+
+      - name: Execute Scoring
+        working-directory: mpi-scoring
+        run: |
+          source bashrc
+          bash prepare-data.sh
+          
+          
+      - name: Execute Scoring
+        working-directory: mpi-scoring
+        run: |
+          source bashrc
+          bash execute.sh
+
+
 
       - name: Display structure of downloaded files
         run: ls -R mpi-scoring/traces

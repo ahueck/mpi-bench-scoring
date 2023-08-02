@@ -1,3 +1,9 @@
 
 export MPI_ARG_USAGE_BASE=$(cd $(dirname ${BASH_SOURCE:-$0}) && pwd -P)/mpi-arg
 
+export COBE_FILES=traces/corrbench-trace
+
+export MBI_FILES=traces/mbi-trace
+
+export HPC_DATA_DIR=mpi-arg-usage/output
+
