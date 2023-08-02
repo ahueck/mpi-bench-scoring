@@ -2,7 +2,7 @@
 
 source bashrc
 
-git clone https://github.com/tudasc/mpi-arg-usage.git
+git clone git clone --depth 1 https://github.com/tudasc/mpi-arg-usage.git
 
 # install anaconda env
 

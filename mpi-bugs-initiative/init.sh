@@ -2,9 +2,9 @@
 
 source bashrc
 
-git clone --depth 1 --branch paper https://gitlab.com/MpiBugsInitiative/MpiBugsInitiative.git MpiBugsInitiative
+git clone --depth 1 --branch paper https://gitlab.com/MpiBugsInitiative/MpiBugsInitiative.git
 
-cp tracer/* mbi/scripts/tools
+cp tracer/* MpiBugsInitiative/scripts/tools
 
 cd MpiBugsInitiative/
 git apply ../patch/mbi-script.patch
