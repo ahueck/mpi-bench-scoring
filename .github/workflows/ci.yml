@@ -212,12 +212,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           path: mpi-scoring/traces
-
-      - name: Prepare data for Scoring
-        working-directory: mpi-scoring
-        run: |
-          source bashrc
-          bash prepare-data.sh
           
       - name: Execute Scoring
         working-directory: mpi-scoring
