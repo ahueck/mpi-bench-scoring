@@ -115,7 +115,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: mbi-trace
-          path: mpi-bugs-initiative/mbi/mpi-arg-trace-files
+          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files
 
 
   run-scoring:
