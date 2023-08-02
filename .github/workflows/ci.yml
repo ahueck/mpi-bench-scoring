@@ -62,6 +62,40 @@ jobs:
           name: corrbench-trace
           path: mpi-corrbench/mpi-corrbench/mpi-arg-trace-files
 
+  run-corrbench-static:
+    name: "MPI-Corrbench v1.2.1"
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: s-weigand/setup-conda@v1
+        with:
+            conda-channels: anaconda, conda-forge
+
+      - name: Setup MPI-CorrBench
+        working-directory: mpi-corrbench
+        run: |
+          source bashrc
+          bash init.sh
+          
+      - name: Setup collection of static Data
+        working-directory: mpi-scoring
+        run: |
+          source bashrc
+          bash init.sh
+
+      - name: Statically Analyze MPI-CorrBench
+        working-directory: mpi-corrbench
+        run: |
+          source bashrc
+          bash collect_static_data.sh
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: mbi-trace
+          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files/static_output
+
 
   run-mbi:
     name: "MPI Bugs Initiative v1.0.0"
@@ -116,18 +150,15 @@ jobs:
     runs-on: ubuntu-20.04
     # Do not ignore bash profile files. From:
     # https://github.com/marketplace/actions/setup-miniconda
-    defaults:
-      run:
-        shell: bash -l {0}
+    #defaults:
+    #  run:
+    #    shell: bash -l {0}
     steps:
       - uses: actions/checkout@v3
       
       - uses: s-weigand/setup-conda@v1
         with:
             conda-channels: anaconda, conda-forge
-
-      - name: Update apt
-        run: sudo apt-get update
 
       - name: Setup MBI
         working-directory: mpi-bugs-initiative
@@ -153,22 +184,16 @@ jobs:
           path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files/static_output
 
   run-scoring:
-    needs: [run-mbi, run-corrbench]
+    needs: [run-mbi, run-corrbench,  run-mbi-static,  run-cobe-static]
     name: "MPI Usage Pattern Scorer"
     runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
       
-      - name: Update apt
-        run: sudo apt-get update
-
-      - name: Install Clang-format
-        run: sudo apt-get install clang-format-12
-      
-      - name: Setup env
-        run: |
-          sudo ln -f -s /usr/bin/clang-format-12 /usr/bin/clang-format
+      - uses: s-weigand/setup-conda@v1
+        with:
+            conda-channels: anaconda, conda-forge  
        
       - name: Setup Scoring
         working-directory: mpi-scoring
@@ -180,19 +205,17 @@ jobs:
         with:
           path: mpi-scoring/traces
 
-      - name: Execute Scoring
+      - name: Prepare data for Scoring
         working-directory: mpi-scoring
         run: |
           source bashrc
           bash prepare-data.sh
-          
           
       - name: Execute Scoring
         working-directory: mpi-scoring
         run: |
           source bashrc
           bash execute.sh
-
 
 
       - name: Display structure of downloaded files
