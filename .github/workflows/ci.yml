@@ -120,9 +120,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      steps:
-      - uses: actions/checkout@v3
-
       - name: Update apt
         run: sudo apt-get update
 
