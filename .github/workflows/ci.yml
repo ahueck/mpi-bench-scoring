@@ -97,7 +97,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: mbi-trace
+          name: corrbench-trace
           path: mpi-corrbench/MPI-Corrbench/mpi-arg-trace-files
 
 
