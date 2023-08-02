@@ -10,7 +10,7 @@ cat $COBE_FILES/mpi-arg-trace-*.csv > $COBE_FILES/cobe_dynamic.csv
 cat $MBI_FILES/mpi-arg-trace-*.csv > $MBI_FILES/mbi_dynamic.csv
 
 # the full hpc applications dataset to score against
-tar -xzf mpi-arg-usage/output/output.csv.tar.gz $HPC_DATA_DIR
+tar -xzf mpi-arg-usage/output/output.csv.tar.gz -C $HPC_DATA_DIR
 
 cd $MPI_ARG_USAGE_BASE 
 
