@@ -8,7 +8,7 @@ git clone --depth 1 https://github.com/tudasc/mpi-arg-usage.git
 
 conda env create -f mpi-arg-usage/environment.yml
 
-conda init
-source ~/.bashrc
+#conda init
+#source ~/.bashrc
 
-conda activate mpi_analysis
+source activate mpi_analysis
