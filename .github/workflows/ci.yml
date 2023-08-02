@@ -209,6 +209,9 @@ jobs:
           source bashrc
           bash init.sh
           
+      - name: Display structure of downloaded files
+        run: ls -R mpi-scoring/traces
+          
       - uses: actions/download-artifact@v3
         with:
           path: mpi-scoring/traces
@@ -219,9 +222,8 @@ jobs:
           source bashrc
           bash execute.sh
 
-
-      - name: Display structure of downloaded files
-        run: ls -R mpi-scoring/traces
-      #todo upload plots as final artifact 
-
+      - uses: actions/upload-artifact@v3
+        with:
+          name: plots
+          path: mpi-scoring/plots
 
