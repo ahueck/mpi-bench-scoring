@@ -11,7 +11,8 @@ env:
   CXX: clang++
   CC: clang
   OMP_NUM_THREAD: 1
-  CI_SCORE_TEST: 1
+# to test if the first stage of the CI starts (the data collection)- this will cause the plotting stage to fail, as not enough data was collected
+#  CI_SCORE_TEST: 1
 
 jobs:
   run-corrbench:
