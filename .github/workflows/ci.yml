@@ -99,12 +99,6 @@ jobs:
         run: |
           source bashrc
           bash init.sh
-          
-      - name: Setup collection of static Data
-        working-directory: mpi-scoring
-        run: |
-          source bashrc
-          bash init.sh
 
       - name: Trace MBI
         working-directory: mpi-bugs-initiative
