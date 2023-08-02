@@ -2,13 +2,11 @@
 
 source bashrc
 
-#git clone --depth 1 https://github.com/tudasc/mpi-arg-usage.git
+git clone --depth 1 https://github.com/tudasc/mpi-arg-usage.git
 
 # install anaconda env
 
-#conda env create -f mpi-arg-usage/environment.yml
-conda env create --name mpi_analysis
+conda env create -f mpi-arg-usage/environment.yml --name mpi_analysis
 
-#source ~/anaconda3/etc/profile.d/conda.sh
-
+# activate it
 source activate mpi_analysis
