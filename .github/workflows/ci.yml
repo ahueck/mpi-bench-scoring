@@ -122,13 +122,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - uses: conda-incubator/setup-miniconda@v2
+      - uses: s-weigand/setup-conda@v1
         with:
-          miniconda-version: "latest"
-          channels: conda-forge, defaults
-          use-only-tar-bz2: true  
-          auto-update-conda: true
-          auto-activate-base: true
+            conda-channels: anaconda, conda-forge
 
       - name: Update apt
         run: sudo apt-get update

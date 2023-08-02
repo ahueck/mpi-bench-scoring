@@ -6,8 +6,8 @@ source bashrc
 
 # install anaconda env
 
-#conda env create -f mpi-arg-usage/environment.yml
-conda env create mpi_analysis
+#conda env create -y -f mpi-arg-usage/environment.yml
+conda env create -y --name mpi_analysis
 
 source ~/anaconda3/etc/profile.d/conda.sh
 
