@@ -184,7 +184,7 @@ jobs:
           path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files/static_output
 
   run-scoring:
-    needs: [run-mbi, run-corrbench,  run-mbi-static,  run-cobe-static]
+    needs: [run-mbi, run-corrbench,  run-mbi-static,  run-corrbench-static]
     name: "MPI Usage Pattern Scorer"
     runs-on: ubuntu-20.04
 
