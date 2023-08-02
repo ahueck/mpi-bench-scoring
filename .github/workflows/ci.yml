@@ -98,7 +98,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: mbi-trace
-          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files/static_output
+          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files
 
 
   run-mbi:
@@ -185,7 +185,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: mbi-trace
-          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files/static_output
+          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files
 
   run-scoring:
     needs: [run-mbi, run-corrbench,  run-mbi-static,  run-corrbench-static]
