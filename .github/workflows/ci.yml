@@ -60,7 +60,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: corrbench-trace
-          path: mpi-corrbench/mpi-corrbench/mpi-arg-trace-files
+          path: mpi-corrbench/MPI-Corrbench/mpi-arg-trace-files
 
   run-corrbench-static:
     name: "MPI-Corrbench v1.2.1 Static"
@@ -98,7 +98,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: mbi-trace
-          path: mpi-bugs-initiative/MpiBugsInitiative/mpi-arg-trace-files
+          path: mpi-corrbench/MPI-Corrbench/mpi-arg-trace-files
 
 
   run-mbi:
