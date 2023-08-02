@@ -3,6 +3,8 @@
 source ../mpi-scoring/bashrc
 source bashrc
 
+source activate $ENV_NAME
+
 # collect the static data
 
 # set up code locations file

@@ -7,3 +7,5 @@ export MBI_FILES=traces/mbi-trace
 
 export HPC_DATA_DIR=mpi-arg-usage/output
 
+export ENV_NAME=mpi_analysis
+
