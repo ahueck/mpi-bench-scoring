@@ -4,6 +4,9 @@ source bashrc
 
 git clone --depth 1 --branch paper https://gitlab.com/MpiBugsInitiative/MpiBugsInitiative.git
 
+# we do not want to analyze the tools/sourcecode and or execution themselve
+rm -rf MpiBugsInitiative/tools
+
 cp tracer/* MpiBugsInitiative/scripts/tools
 
 cd MpiBugsInitiative/
