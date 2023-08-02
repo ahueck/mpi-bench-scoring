@@ -120,9 +120,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      steps:
-      - uses: actions/checkout@v3
-
       - name: Update apt
         run: sudo apt-get update
 
@@ -139,7 +136,7 @@ jobs:
           source bashrc
           bash init.sh
           
-     - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v3
         with:
           path: mpi-scoring/traces
 
