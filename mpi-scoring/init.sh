@@ -2,9 +2,9 @@
 
 source bashrc
 
-git clone git@github.com:tudasc/mpi-arg-usage.git
+git clone https://github.com/tudasc/mpi-arg-usage.git
 
-# install anaconda enn
+# install anaconda env
 
 conda install -f mpi-arg-usage/environment.yml
 
